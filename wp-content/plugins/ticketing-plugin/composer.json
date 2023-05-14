@@ -1,0 +1,17 @@
+{
+    "name": "r00t/ticketing-plugin",
+    "description": "Weekend task to create ing system",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "0xAckerMan",
+            "email": "joelkores1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}

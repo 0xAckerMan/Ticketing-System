@@ -3,8 +3,9 @@
  * @package TicketingPlugin
  */
 
+ namespace Inc;
 
-class TicketingPluginDeactivate{
+class Deactivate{
     public static function deactivate(){
         flush_rewrite_rules();
     }
