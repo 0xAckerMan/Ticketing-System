@@ -3,8 +3,8 @@
  * @package TicketingPlugin
  */
 
- namespace Inc\Admin;
+ namespace Inc\Pages;
 
-class AdminPages{
+class Admin{
     
 }

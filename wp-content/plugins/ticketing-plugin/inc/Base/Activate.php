@@ -3,10 +3,10 @@
  * @package TicketingPlugin
  */
 
- namespace Inc;
+namespace Inc\Base;
 
-class Deactivate{
-    public static function deactivate(){
+class Activate{
+    public static function activate(){
         flush_rewrite_rules();
     }
 }
