@@ -20,27 +20,15 @@ defined('ABSPATH') or die("Caught you hacker");
 
 class TicketingPlugin{
 
-    function __construct(){
-        add_action('init', [$this, 'custom_post_type']);
+    public static function register(){
+        add_action('admin_enqueue_scripts', array( 'TicketingPlugin', 'enqueue'));
     }
 
-    function activate(){
-        // Generate a cpt
-        $this -> custom_post_type();
-        //flush the rewrite rules
-        flush_rewrite_rules();
 
-    }
-
-    function deactivate(){
-        //flush the rewrite rule
-
-    }
-
-    function uninstall (){
-        //delete CPt
-        // Delete the whole plugin
-
+    static function enqueue(){
+        // Enqueue all my scripts
+        wp_enqueue_style('mypluginstyle', plugins_url('/assests/mystyle.css',__FILE__));
+        wp_enqueue_script('mypluginstyle', plugins_url('/assests/myscript.js',__FILE__));
     }
 
     function custom_post_type(){
@@ -49,13 +37,15 @@ class TicketingPlugin{
 
 }
 
-$ticketingPlugin = new TicketingPlugin;
+if (class_exists('TicketingPlugin')){
+    TicketingPlugin::register();
+}
 
 
 //activation
-register_activation_hook(__FILE__, [$ticketingPlugin, 'activate']);
+require_once plugin_dir_path(__FILE__).'inc/ticketing-plugin-activate.php';
+register_activation_hook(__FILE__, ['TicketingPluginActivate', 'activate']);
 
 //deactivation
-register_deactivation_hook(__file__,[$ticketingPlugin, 'deactivate']);
-
-//uninstall
+require_once plugin_dir_path(__FILE__).'inc/ticketing-plugin-deactivate.php';
+register_deactivation_hook(__file__,['TicketingPluginDeactivate', 'deactivate']);
