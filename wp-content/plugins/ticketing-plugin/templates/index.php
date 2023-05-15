@@ -1,1 +1,0 @@
-<h1>Ticketing Pluginn</h1>
