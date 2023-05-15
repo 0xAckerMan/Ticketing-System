@@ -5,33 +5,48 @@
 
  namespace Inc\Pages;
 
- use \Inc\Base\BaseController;
  use \Inc\Api\SettingsApi;
+ use \Inc\Base\BaseController;
+ use \Inc\Api\Callbacks\AdminCallbacks;
 
 class Admin extends BaseController{
     public $settings;
+
+    public $callbacks;
 
     public $pages = array();
 
     public $subpages = array();
 
-    public function __construct(){
-        $this->settings = new SettingsApi();
+    
 
+    //My Api for creating admin pages in seconds
+    public function register(){
+$this-> callbacks = new AdminCallbacks();
+
+        $this->settings = new SettingsApi();
+        $this->setPages();
+        $this->setSubPages();
+
+        $this->settings->addPages($this->pages)->withSubPage('Dashboard')-> addSubPages($this->subpages) ->register();
+    }
+
+    public function setPages(){
         $this->pages = array(
             [
             'page_title' => 'Ticketing Plugin',
             'menu_title' => 'Create Tickets',
             'capability' => 'manage_options',
             'menu_slug' => 'tickets',
-            'callback' => function(){echo '<h1>Ticet plugin</h1>';},
+            'callback' => array($this->callbacks, 'adminDashboard'),
             'icon_url' => 'dashicons-plus-alt',
             'position' => 110
             ],
-
-
         );
 
+    }
+
+    public function setSubPages(){
         $this->subpages = array(
             array(
             'parent_slug' => 'tickets',
@@ -39,7 +54,7 @@ class Admin extends BaseController{
             'menu_title' => 'Create',
             'capability' => 'manage_options',
             'menu_slug' => 'tickets_create',
-            'callback' => function(){echo '<h1>Create plugin</h1>';},
+            'callback' => array( $this->callbacks, 'adminCreate' )
             ),
             array(
                 'parent_slug' => 'tickets',
@@ -47,15 +62,8 @@ class Admin extends BaseController{
                 'menu_title' => 'Update',
                 'capability' => 'manage_options',
                 'menu_slug' => 'tickets_update',
-                'callback' => function(){echo '<h1>Update plugin</h1>';},
+                'callback' => array( $this->callbacks, 'adminUpdate' ),
             ),
         );
-    }
-    
-
-    //My Api for creating admin pages in seconds
-    public function register(){
-
-        $this->settings->addPages($this->pages)->withSubPage('Dashboard')-> addSubPages($this->subpages) ->register();
     }
 }
