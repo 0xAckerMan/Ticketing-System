@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<form method="post" action="">
+<form style="border:2px solid black; background-color:aqua;" method="post" action="">
     <div class="custom-form">
         <?php get_header(); ?>
         <div class="form-con">
