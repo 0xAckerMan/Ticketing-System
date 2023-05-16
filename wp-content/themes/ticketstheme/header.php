@@ -11,5 +11,5 @@
     <?php wp_head();?>
 </head>
 <body>
-    <h2>Header page</h2>
+
     
