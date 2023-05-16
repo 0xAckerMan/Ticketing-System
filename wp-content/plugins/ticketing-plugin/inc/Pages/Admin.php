@@ -29,6 +29,7 @@ $this-> callbacks = new AdminCallbacks();
         $this->setSubPages();
 
         $this->settings->addPages($this->pages)->withSubPage('Dashboard')-> addSubPages($this->subpages) ->register();
+        // $this->settings->addPages($this->pages)->withSubPage('Dashboard')-> addSubPages($this->subpages) ->reg();
     }
 
     public function setPages(){
@@ -41,6 +42,15 @@ $this-> callbacks = new AdminCallbacks();
             'callback' => array($this->callbacks, 'adminDashboard'),
             'icon_url' => 'dashicons-plus-alt',
             'position' => 110
+            ],
+            [
+                'page_title' => 'User View',
+                'menu_title' => 'My Ticket',
+                'capability' => 'read',
+                'menu_slug' => 'ticket',
+                'callback' => array($this->callbacks, 'activeTickets'),
+                'icon_url' => 'dashicons-plus-alt',
+                'position' => 110
             ],
         );
 
@@ -61,6 +71,30 @@ $this-> callbacks = new AdminCallbacks();
                 'page_title' => 'Update Ticket',
                 'menu_title' => 'Update',
                 'capability' => 'manage_options',
+                'menu_slug' => 'tickets_update',
+                'callback' => array( $this->callbacks, 'adminUpdate' ),
+            ),
+            array(
+                'parent_slug' => 'tickets',
+                'page_title' => 'Employees',
+                'menu_title' => 'Employees',
+                'capability' => 'manage_options',
+                'menu_slug' => 'tickets_update',
+                'callback' => array( $this->callbacks, 'adminUpdate' ),
+            ),
+            array(
+                'parent_slug' => 'ticket',
+                'page_title' => 'Create Ticket',
+                'menu_title' => 'Create',
+                'capability' => 'read',
+                'menu_slug' => 'tickets_create',
+                'callback' => array( $this->callbacks, 'adminCreate' )
+                ),
+            array(
+                'parent_slug' => 'ticket',
+                'page_title' => 'Update Ticket',
+                'menu_title' => 'Update',
+                'capability' => 'read',
                 'menu_slug' => 'tickets_update',
                 'callback' => array( $this->callbacks, 'adminUpdate' ),
             ),

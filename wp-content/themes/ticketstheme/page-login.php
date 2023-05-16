@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
         wp_set_auth_cookie($user_id);
         do_action('wp_login', $user->user_login, $user);
 
-        wp_redirect('/Ticketing-System/wp-admin/');
+        wp_redirect('Ticketing-System/wp-admin/');
         exit;
     } else {
         // Display error message if password is incorrect
@@ -70,7 +70,9 @@ if (isset($_POST['submit'])) {
 
             <button class="custom-btn" name="submit" type="submit">LOGIN</button>
 
-
+            <p class="form-alt-text">
+                Don't have an account? <a href="/Ticketing-System/register">Register</a>
+            </p>
         </div>
 
     </div>

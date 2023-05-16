@@ -18,6 +18,11 @@ class AdminCallbacks extends BaseController
 		return require_once( "$this->plugin_path/templates/index.php" );
 	}
 
+	public function activeTickets()
+	{
+		return require_once( "$this->plugin_path/templates/user-view.php" );
+	}
+
 	public function adminUpdate()
 	{
 		return require_once( "$this->plugin_path/templates/update.php" );
@@ -33,3 +38,5 @@ class AdminCallbacks extends BaseController
 		return require_once( "$this->plugin_path/templates/widget.php" );
 	}
 }
+
+
