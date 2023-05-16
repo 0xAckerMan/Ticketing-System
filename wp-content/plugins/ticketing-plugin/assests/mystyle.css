@@ -85,14 +85,14 @@ td {
 
 
 
-body{
+/* body{
     
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
     background-color: #fffff4
-}
+} */
 
 .main{
     display: flex;
@@ -195,40 +195,13 @@ a{
     cursor: pointer;
 }
 
-footer{
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 40px;
-    background-color: #cffaf4;
-}
 
-.footer-left{
-    display: flex;
-    width: 20%;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-right ul{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    flex-direction: row;
-    gap: 40px;
-    text-decoration: none;
-    list-style: none;
-    width: 30%;
-}
 
 
 
 
 /* create.php styles */
-/* * {
+* {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
@@ -252,7 +225,7 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
 }
-input[type="text"], input[type="email"], input[type="tel"], textarea {
+input[type="text"], input[type="select"], input[type="date"], select,textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #58ee85;
@@ -353,7 +326,7 @@ input[type="submit"]:hover {
 
 .container-one{
     /* background-color: #f3ffdd; */
-    /* justify-content: center;
+    /* justify-content: center;*/
     display: flex;
     align-items: center;
 }
@@ -364,11 +337,11 @@ input[type="submit"]:hover {
 .ticket-title {
 	font-weight:bold;
 	font-size:20px;
-	margin-left:10px; */
-/* }
+	margin-left:10px; 
+ }
 .answered {
 	font-size:10px;
 	color:#ffffff;
 	background-color:#7079d6;
 	margin:0px 0px 0px 5px;
-} */ 
+} 

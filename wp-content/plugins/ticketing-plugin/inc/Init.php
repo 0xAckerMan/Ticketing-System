@@ -14,6 +14,7 @@ final class Init{
         return [
             Pages\Admin::class,
             Base\Enqueue::class,
+            Pages\CreateTicket::class,
             Base\SettingsLinks::class
         ];
     }

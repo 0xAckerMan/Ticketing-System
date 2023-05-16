@@ -33,9 +33,20 @@ class AdminCallbacks extends BaseController
 		return require_once( "$this->plugin_path/templates/create.php" );
 	}
 
-	public function adminWidget()
+	public function adminEmployee()
 	{
-		return require_once( "$this->plugin_path/templates/widget.php" );
+		return require_once( "$this->plugin_path/templates/employee.php" );
+	}
+
+
+	public function userCompleted()
+	{
+		return require_once( "$this->plugin_path/templates/completed.php" );
+	}
+
+	public function viewALL()
+	{
+		return require_once( "$this->plugin_path/templates/alltickets.php" );
 	}
 }
 

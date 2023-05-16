@@ -49,7 +49,7 @@ $this-> callbacks = new AdminCallbacks();
                 'capability' => 'read',
                 'menu_slug' => 'ticket',
                 'callback' => array($this->callbacks, 'activeTickets'),
-                'icon_url' => 'dashicons-plus-alt',
+                'icon_url' => 'dashicons-editor-ol',
                 'position' => 110
             ],
         );
@@ -67,7 +67,7 @@ $this-> callbacks = new AdminCallbacks();
             'callback' => array( $this->callbacks, 'adminCreate' )
             ),
             array(
-                'parent_slug' => 'tickets',
+                'parent_slug' => '',
                 'page_title' => 'Update Ticket',
                 'menu_title' => 'Update',
                 'capability' => 'manage_options',
@@ -79,25 +79,25 @@ $this-> callbacks = new AdminCallbacks();
                 'page_title' => 'Employees',
                 'menu_title' => 'Employees',
                 'capability' => 'manage_options',
-                'menu_slug' => 'tickets_update',
-                'callback' => array( $this->callbacks, 'adminUpdate' ),
+                'menu_slug' => 'employee',
+                'callback' => array( $this->callbacks, 'adminEmployee' ),
             ),
             array(
                 'parent_slug' => 'ticket',
-                'page_title' => 'Create Ticket',
-                'menu_title' => 'Create',
+                'page_title' => 'Completed Ticket',
+                'menu_title' => 'Completed',
                 'capability' => 'read',
-                'menu_slug' => 'tickets_create',
-                'callback' => array( $this->callbacks, 'adminCreate' )
+                'menu_slug' => 'tickets_completed',
+                'callback' => array( $this->callbacks, 'userCompleted' )
                 ),
-            array(
-                'parent_slug' => 'ticket',
-                'page_title' => 'Update Ticket',
-                'menu_title' => 'Update',
-                'capability' => 'read',
-                'menu_slug' => 'tickets_update',
-                'callback' => array( $this->callbacks, 'adminUpdate' ),
-            ),
+            // array(
+            //     'parent_slug' => 'tickets',
+            //     'page_title' => 'all Ticket',
+            //     'menu_title' => 'Update',
+            //     'capability' => 'manage_options',
+            //     'menu_slug' => 'tickets_update',
+            //     'callback' => array( $this->callbacks, 'adminUpdate' ),
+            // ),
         );
     }
 }
